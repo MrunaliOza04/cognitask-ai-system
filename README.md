@@ -68,20 +68,22 @@ Authentication Flow:
 
 ## 📂 Project Structure
 
-cognitask-ai/
-│
-├── src/main/java
-│ ├── controller
-│ ├── service
-│ ├── repository
-│ ├── dto
-│ ├── security
-│ └── model
-│
-├── src/main/resources
-│ └── application.properties
-│
-└── pom.xml
+cognitask-ai
+├── src
+│ ├── main
+│ │ ├── java
+│ │ │ ├── controller
+│ │ │ ├── service
+│ │ │ ├── repository
+│ │ │ ├── dto
+│ │ │ ├── security
+│ │ │ └── model
+│ │ └── resources
+│ │ └── application.properties
+│ └── test
+├── pom.xml
+├── mvnw
+└── mvnw.cmd
 
 
 ---
