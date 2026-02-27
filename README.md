@@ -68,23 +68,26 @@ Authentication Flow:
 
 ## 📂 Project Structure
 
+## Project Structure
+
+```
 cognitask-ai
 ├── src
-│ ├── main
-│ │ ├── java
-│ │ │ ├── controller
-│ │ │ ├── service
-│ │ │ ├── repository
-│ │ │ ├── dto
-│ │ │ ├── security
-│ │ │ └── model
-│ │ └── resources
-│ │ └── application.properties
-│ └── test
+│   ├── main
+│   │   ├── java
+│   │   │   ├── controller
+│   │   │   ├── service
+│   │   │   ├── repository
+│   │   │   ├── dto
+│   │   │   ├── security
+│   │   │   └── model
+│   │   └── resources
+│   │       └── application.properties
+│   └── test
 ├── pom.xml
 ├── mvnw
 └── mvnw.cmd
-
+```
 
 ---
 
