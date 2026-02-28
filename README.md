@@ -1,144 +1,197 @@
-# 🚀 Cognitask AI – Secure Backend System
+<h1 align="center">🧠 Cognitask AI System</h1>
+<h3 align="center">AI-Powered Productivity Agent with Secure Backend & Gesture Interaction</h3>
 
-## 📌 Overview
-
-Cognitask AI is a secure and scalable backend system built using Spring Boot.
-The project demonstrates implementation of production-level authentication,
-JWT-based security, and layered architecture design principles.
-
-The goal of this project is to design a robust backend foundation
-that can support real-world application development.
+<p align="center">
+  <b>Spring Boot • JWT Security • AI Integration • MediaPipe • Clean Architecture</b>
+</p>
 
 ---
 
-## 🏗 Architecture Design
+# 🚀 Product Vision
 
-The project follows a clean layered architecture:
+Cognitask AI System is not just a backend project.
 
-- **Controller Layer** → Handles HTTP Requests
-- **Service Layer** → Business Logic Processing
-- **Repository Layer** → Database Interaction
-- **DTO Layer** → Data Transfer Abstraction
-- **Security Layer** → JWT Authentication & Authorization
+It is a next-generation AI productivity platform designed to merge:
 
-This structure ensures:
+✔ Secure backend engineering  
+✔ Intelligent AI automation  
+✔ Real-time gesture-based interaction  
+
+The system is engineered to evolve into an interactive AI productivity assistant where users can manage tasks through both REST APIs and physical hand gestures using computer vision.
+
+---
+
+# 🏗 System Architecture
+
+### High-Level Flow
+
+┌──────────────────────────────┐
+│ Frontend (Camera UI) │
+│ MediaPipe Hand Tracking │
+└───────────────┬──────────────┘
+↓
+Gesture Detection Engine
+↓
+Gesture → Command Mapper
+↓
+┌────────────────────────────────┐
+│ Spring Boot REST API │
+│ - JWT Authentication │
+│ - RBAC Authorization │
+│ - Business Logic Layer │
+└───────────────┬────────────────┘
+↓
+AI Processing Layer
++ MySQL Database
+↓
+Structured API Response
+
+
+---
+
+# 🧩 Architecture Philosophy
+
+The backend strictly follows **Layered Architecture Principles**:
+
+- **Controller Layer** → Handles HTTP requests
+- **Service Layer** → Business logic orchestration
+- **Repository Layer** → Database abstraction
+- **DTO Layer** → Clean data transfer contracts
+- **Security Layer** → JWT filter chain & RBAC enforcement
+
+This ensures:
+
 - Separation of concerns
-- Maintainability
 - Scalability
-- Clean code practices
+- Testability
+- Clean extensibility for AI and frontend layers
 
 ---
 
-## 🔐 Security Implementation
+# 🔐 Enterprise-Grade Security Implementation
 
-Security is implemented using:
+✔ Stateless Authentication using JWT  
+✔ Custom JWT Authentication Filter  
+✔ BCrypt Password Encryption  
+✔ Role-Based Access Control (USER / ADMIN)  
+✔ Endpoint-Level Protection  
+✔ Exception Handling Mechanism  
 
-- Spring Security 6
-- BCrypt Password Encoding
-- JWT Token Generation
-- JWT Validation Filter
-- Stateless Authentication
-
-Authentication Flow:
-
-1. User registers
-2. Password stored using BCrypt hashing
-3. User logs in
-4. JWT token is generated
-5. Client sends token in `Authorization: Bearer <token>`
-6. Security filter validates token
-7. Access granted to protected endpoints
+Security is designed to simulate production-ready backend standards.
 
 ---
 
-## 🧰 Tech Stack
+# 🧠 AI Layer (Phase 2)
 
-| Technology | Purpose |
-|------------|----------|
-| Java 25 | Core Language |
-| Spring Boot 3.x | Backend Framework |
-| Spring Security | Authentication & Authorization |
-| JWT | Stateless Security |
-| Spring Data JPA | ORM |
-| MySQL | Database |
-| Maven | Build Tool |
-| Postman | API Testing |
+The AI layer will integrate an external LLM (Gemini or equivalent) to provide:
+
+- Intelligent task breakdown
+- Context-aware suggestions
+- Smart goal planning
+- Dynamic productivity insights
+
+This transforms Cognitask from a CRUD backend into an intelligent assistant.
 
 ---
 
-## 📂 Project Structure
+# ✋ Gesture Interaction Layer (Phase 3)
 
-## Project Structure
+The final system introduces computer vision interaction using MediaPipe.
 
-```
-cognitask-ai
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   ├── controller
-│   │   │   ├── service
-│   │   │   ├── repository
-│   │   │   ├── dto
-│   │   │   ├── security
-│   │   │   └── model
-│   │   └── resources
-│   │       └── application.properties
-│   └── test
-├── pom.xml
-├── mvnw
-└── mvnw.cmd
-```
+### Planned Gesture Mapping
+
+| Gesture | Action |
+|----------|--------|
+| 👍 Thumbs Up | Mark Task Complete |
+| ✋ Open Palm | Pause Task |
+| ✊ Fist | Start Focus Session |
+| ✌ Two Fingers | Show Progress |
+| 👉 Point Right | Switch to Next Task |
+
+This layer enables hands-free productivity control — bridging AI and physical interaction.
 
 ---
 
-## ✅ Features Implemented
+# 📦 Core Backend Features (Current Phase Complete)
 
 - User Registration API
-- Secure Login API
-- BCrypt Password Encryption
-- JWT Token Creation
-- JWT Request Filter
-- Protected REST Endpoints
-- Exception Handling Structure
-- Clean Package Organization
+- Secure Login API (JWT Token Generation)
+- Token Validation Filter
+- Role-Based Authorization
+- Goal & Task Entities
+- Exception Handling
+- Clean Package Structure
+- MySQL Integration
 
 ---
 
-## 🔄 Current Development
+# 🗺 Development Roadmap
 
-- Role-Based Authorization (In Progress)
+### ✅ Phase 1 — Secure Backend Foundation (Completed)
 
----
+- Security Architecture
+- JWT Implementation
+- RBAC Enforcement
+- Database Integration
 
-## 🗄 Database Design
+### 🔜 Phase 2 — AI Integration
 
-- Relational schema using MySQL
-- Entity relationships mapped with JPA
-- Repository pattern for data abstraction
+- External LLM Integration
+- Smart Task Generator
+- AI Suggestions Engine
 
----
+### 🔜 Phase 3 — Frontend + Gesture Layer
 
-## ▶ Running the Application
-
-1. Clone the repository
-2. Configure database credentials in `application.properties`
-3. Run using: mvn spring-boot:run
-4. Test APIs using Postman
-
----
-
-## 🎯 Future Improvements
-
-- Complete Role-Based Access Control
-- Refresh Token Implementation
-- API Documentation (Swagger/OpenAPI)
-- Docker Containerization
-- Cloud Deployment (AWS / Render)
-- Unit & Integration Testing
+- Web Interface
+- MediaPipe Integration
+- Gesture Recognition Engine
+- Real-Time API Communication
 
 ---
 
-## 👨‍💻 Author
+# 🧰 Tech Stack
 
-**Mrunali Oza**  
-Backend Developer – Java & Spring Boot  
+## Backend
+- Java 17+
+- Spring Boot 3
+- Spring Security
+- Spring Data JPA
+- MySQL
+- Maven
+
+## AI (Planned)
+- Gemini API / External LLM
+
+## Frontend (Planned)
+- JavaScript
+- MediaPipe
+- REST API Integration
+
+---
+
+# ⚙ Running the Project
+
+1. Clone the repository  
+2. Configure `application.properties`  
+3. Ensure MySQL is running  
+4. Run Spring Boot application  
+5. Test APIs using Postman  
+
+---
+
+# 🎯 Long-Term Objective
+
+Cognitask AI is being engineered as a modular, scalable productivity ecosystem capable of expanding into:
+
+- AI-based productivity analytics
+- Voice or gesture-based command systems
+- Multi-user collaboration
+- Real-time AI coaching
+
+This repository represents the foundation of an intelligent, secure, and extensible productivity platform.
+
+---
+
+<p align="center">
+  <b>Engineered with Scalability. Secured for Production. Designed for Intelligence.</b>
+</p>
