@@ -36,12 +36,18 @@ public class UserService {
 
     public User createUser(User user) {
 
-        // 🔐 Encode password before saving
+        // 🔐 Encode password
         String encodedPassword =
                 passwordEncoder.encode(user.getPassword());
 
         user.setPassword(encodedPassword);
-        user.setRole("ROLE_USER");
+
+        // 🔥 Check if first user
+        if (userRepository.count() == 0) {
+            user.setRole("ROLE_ADMIN");
+        } else {
+            user.setRole("ROLE_USER");
+        }
 
         return userRepository.save(user);
     }
@@ -63,7 +69,7 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
 
         if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-           String token = jwtUtil.generateToken(user.getEmail());
+           String token = jwtUtil.generateToken(user.getEmail(),user.getRole());
             return token;
         } else {
             throw new InvalidCredentialsException("Invalid Credentials");

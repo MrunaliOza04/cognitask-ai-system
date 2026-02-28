@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class JwtUtil {
@@ -18,14 +20,22 @@ public class JwtUtil {
     );
 
     // ✅ Generate Token
-    public String generateToken(String email) {
+    public String generateToken(String email, String role) {
+
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("role", role);
 
         return Jwts.builder()
-                .setSubject(email) // store email inside token
-                .setIssuedAt(new Date()) // current time
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // 1 hour validity
-                .signWith(key, SignatureAlgorithm.HS256) // sign token
+                .setClaims(claims)
+                .setSubject(email)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
+                .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
+    }
+
+    public String extractRole(String token) {
+        return extractAllClaims(token).get("role", String.class);
     }
 
     // ✅ Extract Username (email)

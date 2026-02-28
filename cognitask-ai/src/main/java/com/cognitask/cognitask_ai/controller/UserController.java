@@ -6,6 +6,7 @@ import com.cognitask.cognitask_ai.dto.UserResponseDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.cognitask.cognitask_ai.entity.User;
@@ -20,11 +21,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/create")
+    @PostMapping("/register")
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/all")
     public List<UserResponseDTO> getAllUsers() {
         return userService.getAllUsers();
