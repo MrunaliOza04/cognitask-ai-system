@@ -25,27 +25,33 @@ The system is engineered to evolve into an interactive AI productivity assistant
 
 ### High-Level Flow
 
-┌──────────────────────────────┐
-│ Frontend (Camera UI) │
-│ MediaPipe Hand Tracking │
-└───────────────┬──────────────┘
+┌─────────────────────────────────────┐
+│ Frontend Layer │
+│ Camera UI + MediaPipe Hand Track │
+└─────────────────────────────────────┘
 ↓
-Gesture Detection Engine
+┌─────────────────────────────────────┐
+│ Gesture Processing Layer │
+│ - Hand Tracking │
+│ - Gesture Detection │
+│ - Gesture → Command Mapping │
+└─────────────────────────────────────┘
 ↓
-Gesture → Command Mapper
-↓
-┌────────────────────────────────┐
-│ Spring Boot REST API │
+┌─────────────────────────────────────┐
+│ Backend REST API Layer │
+│ - Spring Boot Controllers │
 │ - JWT Authentication │
 │ - RBAC Authorization │
-│ - Business Logic Layer │
-└───────────────┬────────────────┘
+│ - Business Logic (Services) │
+└─────────────────────────────────────┘
 ↓
-AI Processing Layer
-+ MySQL Database
+┌─────────────────────────────────────┐
+│ Intelligence & Data Layer │
+│ - AI Processing (LLM Integration) │
+│ - MySQL Database │
+└─────────────────────────────────────┘
 ↓
-Structured API Response
-
+Structured JSON Response
 
 ---
 
